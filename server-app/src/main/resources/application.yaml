@@ -1,0 +1,41 @@
+# The main configuration file for the Spring Boot application
+spring:
+  application:
+    name: server-app
+  datasource:
+    url: jdbc:h2:mem:test_db
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true # Enable H2 console
+      path: /console # The path to access H2 console
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  security:
+    user:
+      name: root
+      password: root
+
+# Configuration for the Swagger UI
+springdoc:
+  swagger-ui:
+    enabled: true # Enable Swagger UI
+    path: /docs # The path to access Swagger UI
+
+# Application specific configurations
+app:
+  jwt:
+    secret-key: simplekeyforyourjwtgeneration # The secret key for JWT generation
+
+# Server configurations
+server:
+  port: 8080
+
+# API configurations
+api:
+  endpoint:
+    base-url: /api

@@ -33,9 +33,15 @@ public class BlogService {
         blog.setImage(dto.image());
         blog.setAuthor(dto.author());
         blog.setCategory(dto.category());
+
+        System.out.println(LocalDate.now());
         blog.setCreatedAt(LocalDate.now());
         blog.setLikes(0);
 
         blogRepository.save(blog);
+    }
+
+    public List<Blog> search(String title) {
+        return blogRepository.findByTitleContainingIgnoreCase(title);
     }
 }

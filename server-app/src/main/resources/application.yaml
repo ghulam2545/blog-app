@@ -29,7 +29,7 @@ springdoc:
 # Application specific configurations
 app:
   jwt:
-    secret-key: simplekeyforyourjwtgeneration # The secret key for JWT generation
+    secret-key: simplekeyforyourjwtgenerationandhowlongitshouldbe
 
 # Server configurations
 server:

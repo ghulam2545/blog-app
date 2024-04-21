@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("${api.endpoint.base-url}/blogs")
@@ -34,6 +35,12 @@ public class BlogController {
     @PostMapping
     public ResponseEntity<?> save(@RequestBody BlogRequest dto) {
         blogService.save(dto);
-        return ResponseEntity.ok("Blog saved successfully");
+        return ResponseEntity.ok(Map.of("message", "Blog saved successfully"));
+    }
+
+    @GetMapping("/search/{title}")
+    public ResponseEntity<?> search(@PathVariable String title) {
+        List<Blog> blogs = blogService.search(title);
+        return ResponseEntity.ok(blogs);
     }
 }

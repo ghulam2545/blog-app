@@ -1,0 +1,22 @@
+header {
+    padding: 1rem 25rem;
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        padding: 1rem 1rem;
+    }
+
+}
+
+@media (max-width: 776px) {
+    .custom-col {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-col {
+        width: 100%;
+    }
+}

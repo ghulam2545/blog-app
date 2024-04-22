@@ -1,0 +1,13 @@
+@media (max-width: 776px) {
+    .custom-col {
+        width: 50%;
+        /* Set width to full for small devices */
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-col {
+        width: 100%;
+        /* Set width to full for small devices */
+    }
+}

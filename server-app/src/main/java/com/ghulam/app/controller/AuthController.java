@@ -6,6 +6,8 @@ import com.ghulam.app.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("${api.endpoint.base-url}/auth")
 @CrossOrigin("*")
@@ -20,13 +22,13 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody SignupRequest dto) {
         authService.signup(dto);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(Map.of("message", "User registered successfully."));
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest dto) {
         String token = authService.login(dto);
-        return ResponseEntity.ok(token);
+        return ResponseEntity.ok(Map.of("username", dto.username(), "token", token));
     }
 
     @PostMapping("/logout")

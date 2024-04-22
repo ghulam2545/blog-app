@@ -2,7 +2,6 @@ package com.ghulam.app.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -26,8 +25,12 @@ public class JwtService {
                 .parseSignedClaims(token)
                 .getPayload();
 
-        /* todo */
-        return payload.getSubject().replaceAll("\\s", "");
+        String username = payload.getSubject();
+//        System.out.println("Username extracted: " + username);
+        if (username != null) {
+            username = username.trim();
+        }
+        return username;
     }
 
     public boolean validate(String token) {
@@ -53,17 +56,20 @@ public class JwtService {
         Date now = new Date();
         Date expiry = new Date(now.getTime() + 1000 * 60 * 60 * 10); // 10 hours
 
-        return Jwts
+        String token = Jwts
                 .builder()
                 .subject(username)
                 .issuedAt(now)
                 .expiration(expiry)
                 .signWith(getSigningKey())
                 .compact();
+
+//        System.out.println("Token generated: " + token);
+        return token;
     }
 
     private SecretKey getSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(PRIVATE_SECRET_KEY);
+        byte[] keyBytes = PRIVATE_SECRET_KEY.getBytes();
         return Keys.hmacShaKeyFor(keyBytes);
     }
 

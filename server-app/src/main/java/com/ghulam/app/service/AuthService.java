@@ -34,7 +34,7 @@ public class AuthService {
         String intro = dto.intro();
         String encodedPassword = encoder.encode(password);
 
-        User user = new User(username, email, encodedPassword, intro);
+        User user = new User(null, username, email, encodedPassword, intro);
         userRepository.save(user);
     }
 

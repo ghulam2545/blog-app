@@ -84,19 +84,19 @@ public class ServerApplication implements ApplicationRunner {
                 """;
 
         List<Blog> blogs = List.of(
-                new Blog("The Power of Data Analytics", brief, content, "https://example.com/image1.jpg", "John Doe", Category.BUSINESS, LocalDate.now(), 37),
-                new Blog("Exploring the World of Sports", brief, content, "https://example.com/image2.jpg", "Jane Smith", Category.SPORT, LocalDate.now(), 45),
-                new Blog("The Latest in Technological Advancements", brief, content, "https://example.com/image3.jpg", "Alex Jones", Category.TECHNOLOGY, LocalDate.now(), 23),
-                new Blog("Finance Strategies for Success", brief, content, "https://example.com/image4.jpg", "Emily Wong", Category.BUSINESS, LocalDate.now(), 56),
-                new Blog("Healthy Lifestyle and Fitness Tips", brief, content, "https://example.com/image5.jpg", "Michael Smith", Category.SPORT, LocalDate.now(), 78)
+                new Blog(null, "The Power of Data Analytics", brief, content, "https://example.com/image1.jpg", "John Doe", Category.BUSINESS, LocalDate.now(), 37),
+                new Blog(null, "Exploring the World of Sports", brief, content, "https://example.com/image2.jpg", "Jane Smith", Category.SPORT, LocalDate.now(), 45),
+                new Blog(null, "The Latest in Technological Advancements", brief, content, "https://example.com/image3.jpg", "Alex Jones", Category.TECHNOLOGY, LocalDate.now(), 23),
+                new Blog(null, "Finance Strategies for Success", brief, content, "https://example.com/image4.jpg", "Emily Wong", Category.BUSINESS, LocalDate.now(), 56),
+                new Blog(null, "Healthy Lifestyle and Fitness Tips", brief, content, "https://example.com/image5.jpg", "Michael Smith", Category.SPORT, LocalDate.now(), 78)
         );
 
         List<User> users = List.of(
-                new User("string", "string@gmail.com", encoder.encode("string"), brief),
-                new User("John Doe", "john123@gmail.com", encoder.encode("112233"), brief),
-                new User("Jane Smith", "jane123@gmail.com", encoder.encode("112233"), brief),
-                new User("Alex Jones", "alex@gmail.com", encoder.encode("123456"), brief),
-                new User("Emily Wong", "emily@gmail.com", encoder.encode("123456"), brief)
+                new User(null, "string", "string@gmail.com", encoder.encode("string"), brief),
+                new User(null, "John Doe", "john123@gmail.com", encoder.encode("112233"), brief),
+                new User(null, "Jane Smith", "jane123@gmail.com", encoder.encode("112233"), brief),
+                new User(null, "Alex Jones", "alex@gmail.com", encoder.encode("123456"), brief),
+                new User(null, "Emily Wong", "emily@gmail.com", encoder.encode("123456"), brief)
         );
 
         blogRepository.saveAll(blogs);
